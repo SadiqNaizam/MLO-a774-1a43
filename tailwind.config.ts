@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
 	darkMode: ["class"],
@@ -63,11 +64,19 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			fontFamily: {
+        sans: ['Arial', 'sans-serif', ...defaultTheme.fontFamily.sans],
+      },
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+        DEFAULT: 'var(--radius)', // 0.125rem, PRD default: rounded-sm
+				sm: 'var(--radius)', // 0.125rem, PRD default: rounded-sm
+				md: '0.375rem',      // PRD buttons: rounded-md
+				lg: '0.5rem',        // A common larger value for Shadcn consistency
 			},
+      boxShadow: {
+        DEFAULT: '0 1px 2px 0 rgb(0 0 0 / 0.05)', // PRD default: shadow-sm
+        sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',      // PRD default: shadow-sm
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
